@@ -1,23 +1,35 @@
 package code;
 
-import java.util.Arrays;
+import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
-public class NQueens {
+public class NQueensLeetcode {
     private static int[] qPositions;
     private static Set<int[]> solutions;
     private static Set<Integer> rowSet;
     private static int n;
 
     public static void main(String[] args) throws Exception {
-        int num = Integer.parseInt(args[0]);
+        List<List<String>> listSolStrings = solveNQueens(5);
+        for (List<String> listStr : listSolStrings) {
+            for (String str : listStr) {
+                System.out.println(str);
+            }
+            System.out.println();
+        }
+    }
+
+    public static List<List<String>> solveNQueens(int num) {
         init(num);
         solve(0);
+        List<List<String>> listSolStrings = new ArrayList<>();
         for (int[] sol : solutions) {
             // System.out.println(Arrays.toString(sol)); //shows the number representation
-            System.out.println(qToString(sol));
+            listSolStrings.add(formatSolution(sol));
         }
+        return listSolStrings;
     }
 
     public static void init(int num) {
@@ -68,7 +80,7 @@ public class NQueens {
         return true;
     }
 
-    public static String qToString(int[] sol) {
+    public static List<String> formatSolution(int[] sol) {
         // this method translates the number sequence into a 2d char array representing
         // the chess board
         // it then turns that into a correctly formated string
@@ -81,10 +93,10 @@ public class NQueens {
                     board[j][i] = '.'; // empty space
             }
         }
-        String str = "";
+        List<String> listSol = new ArrayList<>();
         for (char[] cs : board) {
-            str += Arrays.toString(cs) + "\n";
+            listSol.add(String.copyValueOf(cs));
         }
-        return str;
+        return listSol;
     }
 }
