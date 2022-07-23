@@ -14,6 +14,7 @@ The N-Queens problem is a question posed in mathematics. It asks can `N` (a post
 ## Sample Invocations
 
 ### Standard format
+```
 Input: 5
 Output: (all solutions including isomorphic ones)
 
@@ -76,14 +77,14 @@ Output: (all solutions including isomorphic ones)
 [., ., ., Q, .]
 [., Q, ., ., .]
 [., ., ., ., Q]
-
+```
 ### Leetcode Format
-
+```
 Input: 
 4
 Output: (all vaild solutions including isomorphic ones)
 [[".Q..","...Q","Q...","..Q."],["..Q.","Q...","...Q",".Q.."]]
-
+```
 ## Notes
 
 I plan on filling out this part soon just not right now 
